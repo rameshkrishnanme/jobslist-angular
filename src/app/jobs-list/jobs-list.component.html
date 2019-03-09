@@ -1,0 +1,27 @@
+<div class="col-md-8 col-md-offset-2">
+<table class="table table-striped">
+  <thead>
+    <td>ID</td>
+    <td>Role</td>
+    <td>Company</td>
+    <td>Location</td>
+    <td>Salary</td>
+    <td>Actions</td>
+  </thead>
+  <tr *ngFor="let job of jobsList">
+    <td>{{ job.id }}</td>
+    <td>
+      <a href="#" on-click="onSelectJob(job)">{{ job.role }}</a>
+    </td>
+    <td>{{ job.company }}</td>
+    <td>{{ job.location }}</td>
+    <td>{{ job.salary }}</td>
+    <td>
+      <span *ngIf="userRole == 'Applicant'">Apply</span>
+      <span *ngIf="userRole == 'Manager'">Edit 
+      <a href="#" (click)="onDeleteJob(job)">Delete</a></span>
+    </td>
+  </tr>
+</table>
+<app-job-detail [currentJob]="selectedJob">Loading job details..</app-job-detail>
+</div>

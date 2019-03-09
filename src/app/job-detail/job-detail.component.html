@@ -1,0 +1,68 @@
+<div [hidden]="showEditMode" class="col-md-8 col-md-offset-4" *ngIf="currentJob">
+	<p>Selected Job: {{currentJob.role}}, ID = {{currentJob.id}}</p>
+
+	<div class="form-group">
+		<span>ID:</span>{{currentJob.id}}
+	</div>
+	<div class="form-group">
+		<span>Salary:</span>{{currentJob.salary}}
+	</div>
+	<div class="form-group">
+		<span>Company:</span>{{currentJob.company}}
+	</div>
+	<div class="form-group">
+		<span>Location:</span>{{currentJob.location}}
+	</div>
+	<div class="form-group">
+		<span>No. of Applicants:</span>{{currentJob.applicantCount}}
+	</div>
+	<button class="btn btn-primary" (click)="switchToEditMode()">Edit</button>
+	<button class="btn btn-warning" (click)="currentJob=null">Close</button>
+</div>
+
+<div [hidden]="!showEditMode" class="col-md-8 col-md-offset-4" *ngIf="jobBeingEdited">
+	<p>Selected Job: {{jobBeingEdited.role}}, ID = {{jobBeingEdited.id}}</p>
+
+	<form (ngSubmit)="onSubmit()" #jobForm="ngForm">
+
+		<div class="form-group">
+			<span>ID:</span>{{jobBeingEdited.id}}
+		</div>
+		<div class="form-group">
+			<span>Salary:</span>
+			<input name="salary" class="form-control" size="40"
+				[(ngModel)]="jobBeingEdited.salary" placeholder="salary" />
+		</div>
+		<div class="form-group">
+			<span>Company:</span>
+			<input name="company" class="form-control" size="40"
+				[(ngModel)]="jobBeingEdited.company" placeholder="company" required minlength="4" #company="ngModel"/>
+			<div *ngIf="company.invalid && (company.dirty || company.touched)" class="alert alert-warning">
+				<div *ngIf="company.errors.required">
+					Company is required
+				</div>
+				<div *ngIf="company.errors.minlength">
+					Company must be at least 4 characters long.
+				</div>
+			</div>
+			
+		</div>
+		<div class="form-group">
+			<span>Location:</span>
+			<input name="location" class="form-control" size="40"
+				[(ngModel)]="jobBeingEdited.location" placeholder="location" required minlength="2" #location="ngModel"/>
+			<div *ngIf="location.invalid && (location.dirty || location.touched)" class="alert alert-warning">
+				<div *ngIf="location.errors.required">
+					Location is required
+				</div>
+				<div *ngIf="location.errors.minlength">
+					Location must be at least 2 characters long.
+				</div>
+			</div>
+		</div>
+		<div class="form-group">
+			<span>No. of Applicants:</span>{{jobBeingEdited.applicantCount}}
+		</div>
+ 		<button type="submit" [disabled]="!jobForm.form.valid" class="btn btn-success">Save</button>
+	</form>
+</div>
