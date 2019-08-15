@@ -11,12 +11,12 @@ interface JobsListResponse {
 export class JobListService {
 	jobsList: Job[];
   /*jobsList: Job[] = [
-    {id: 101, role: 'Angular Application Architect', company: 'Mindtree', location: 'UK', salary: 56000, applicantCount: 0},
-    {id: 102, role: 'Angular Web Developer', company: 'Mindtree', location: 'UK', salary: 56000, applicantCount: 0},
+    {id: 101, role: 'Angular Application Architect', company: 'blacksystems', location: 'UK', salary: 56000, applicantCount: 0},
+    {id: 102, role: 'Angular Web Developer', company: 'blacksystems', location: 'UK', salary: 56000, applicantCount: 0},
     {id: 103, role: 'Angular Test Lead', company: 'BBC', location: 'Manchester', salary: 56000, applicantCount: 0},
-    {id: 104, role: 'Angular Test Engineer', company: 'Mindtree', location: 'UK', salary: 56000, applicantCount: 0},
-    {id: 105, role: 'Angular Automation Tester', company: 'Mindtree', location: 'UK', salary: 56000, applicantCount: 0},
-    {id: 106, role: 'Angular BDD Test Engineer', company: 'Mindtree', location: 'UK', salary: 56000, applicantCount: 0}
+    {id: 104, role: 'Angular Test Engineer', company: 'blacksystems', location: 'UK', salary: 56000, applicantCount: 0},
+    {id: 105, role: 'Angular Automation Tester', company: 'blacksystems', location: 'UK', salary: 56000, applicantCount: 0},
+    {id: 106, role: 'Angular BDD Test Engineer', company: 'blacksystems', location: 'UK', salary: 56000, applicantCount: 0}
   ];*/
   
   SERVICE_BASE_URL = "http://localhost:8080/jobs";
